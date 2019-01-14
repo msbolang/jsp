@@ -119,6 +119,9 @@ private int scount(Connection conn) {
         <tr>
           <td class="jive-icon"><a href="post%21default.jspa?forumID=20"><img src="images/post-16x16.gif" alt="发表新主题" border="0" height="16" width="16"></a></td>
           <td class="jive-icon-label"><a id="jive-post-thread" href="post.jsp">发表新主题</a> <a href="forum.jspa?forumID=20&amp;isBest=1"></a></td>
+          
+                <td class="jive-icon-label"><a id="jive-post-thread" href="logout.jsp">退出</a> </td>
+                     <td class="jive-icon-label"><a id="jive-post-thread" href="login.jsp">登陆</a> </td>
         </tr>
       </tbody>
     </table>
@@ -160,11 +163,16 @@ private int scount(Connection conn) {
                         <!-- div-->
                       </div></td>
                     <td nowrap="nowrap" width="1%">&nbsp;
+                      <%
+                       Object userLogin = session.getAttribute("login");
+                       if(userLogin!=null) {
+                       %>
                       
                       <a href="delete.jsp?id=<%=a.getId() %>&from=<%=url %>">删除</a>
                       
+                      <% } %>
                       
-                      &nbsp;</td>
+                    </td>
                     <td class="jive-thread-name" width="95%"><a id="jive-thread-1" href="/BBS/index_detail.jsp?id=<%=a.getId()%>"><%=a.getTitle()%></a></td>
                     <td class="jive-author" nowrap="nowrap" width="1%"><span class=""> <a href="/profile.jspa?userID=226030">fei870407</a> </span></td>
                     <td class="jive-view-count" width="1%"> 104</td>
